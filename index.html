@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Captcha</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <script
+      src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit"
+      async
+      defer
+    ></script>
+  </head>
+  <body>
+    <div class="container">
+      <span>CPF ou CNPJ</span>
+      <input
+        class="cpf-input"
+        type="text"
+        placeholder="Digite seu CPF ou CNPJ"
+      />
+      <div
+        class="g-recaptcha"
+        data-sitekey="6Le9380ZAAAAAEyXwSjlhfIxesgX51-07fayRBNO"
+      ></div>
+      <br />
+      <input class="btn" type="submit" value="Confirmar" onclick="getToken()" />
+    </div>
+    <script type="text/javascript">
+      let getToken = () => {
+        var response = grecaptcha.getResponse();
+        console.log(response);
+      };
+    </script>
+  </body>
+</html>
